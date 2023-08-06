@@ -5,9 +5,9 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 
 SECRET_KEY = os.getenv('SECRET_KEY', default='any_string')
 
-DEBUG = os.getenv('DEBUG')
+DEBUG = os.getenv('DEBUG', 'False') == 'True' 
 
-ALLOWED_HOSTS = ['158.160.67.32', 'kittygramproject.myvnc.com', '127.0.0.1', 'localhost']
+ALLOWED_HOSTS = os.getenv('ALLOWED_HOSTS').split(',')
 
 INSTALLED_APPS = [
     'django.contrib.admin',
