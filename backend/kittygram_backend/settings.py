@@ -7,7 +7,7 @@ SECRET_KEY = os.getenv('SECRET_KEY', default='any_string')
 
 DEBUG = True
 
-ALLOWED_HOSTS = os.getenv('ALLOWED_HOSTS', '127.0.0.1,backend,localhost').split(',')
+ALLOWED_HOSTS = ['127.0.0.1', '158.160.67.32', 'localhost', 'backend', 'kittygramproject.myvnc.com']
 
 INSTALLED_APPS = [
     'django.contrib.admin',
