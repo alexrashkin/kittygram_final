@@ -15,7 +15,7 @@ services:
     image: alexrashkin/kittygram_backend
     env_file: .env
     volumes:
-      - static:/static/
+      - static_volume:/static/
       - media:/app/media/
     depends_on:
       - db
@@ -25,7 +25,7 @@ services:
     image: alexrashkin/kittygram_frontend
     command: cp -r /app/build/. /static/
     volumes:
-      - static:/static/
+      - static_volume:/static/
 
   gateway:
     image: alexrashkin/kittygram_gateway
@@ -33,8 +33,9 @@ services:
     ports:
       - 9000:80
     volumes:
-      - static:/static/
+      - static_volume:/static/
       - media:/app/media/
     depends_on:
       - backend
       - frontend
+      
