@@ -1,26 +1,59 @@
-#  Как работать с репозиторием финального задания
+Социальная сеть любителей котов Kittygram
 
-## Что нужно сделать
+Проект развернут на сайте: https://kittygramproject.myvnc.com/
+Каждый пользователь сайта в своём личном кабинете имеет возможность публиковать фотографии котов, присваивать каждому коту имя, год рождения, цвет, а также любые достижения.
 
-Настроить запуск проекта Kittygram в контейнерах и CI/CD с помощью GitHub Actions
+Технологии: Python 3.10, Django 3.2, Django REST framework, React
 
-## Как проверить работу с помощью автотестов
+Как запустить проект:
 
-В корне репозитория создайте файл tests.yml со следующим содержимым:
-```yaml
-repo_owner: ваш_логин_на_гитхабе
-kittygram_domain: полная ссылка (https://доменное_имя) на ваш проект Kittygram
-taski_domain: полная ссылка (https://доменное_имя) на ваш проект Taski
-dockerhub_username: ваш_логин_на_докерхабе
+Клонировать репозиторий и перейти в него в командной строке:
+
+```
+git clone git@github.com:alexrashkin/kittygram_final.git
 ```
 
-Скопируйте содержимое файла `.github/workflows/main.yml` в файл `kittygram_workflow.yml` в корневой директории проекта.
+```
+cd kittygram_final
+```
 
-Для локального запуска тестов создайте виртуальное окружение, установите в него зависимости из backend/requirements.txt и запустите в корневой директории проекта `pytest`.
+Cоздать и активировать виртуальное окружение:
 
-## Чек-лист для проверки перед отправкой задания
+```
+python3 -m venv env
+```
 
-- Проект Taski доступен по доменному имени, указанному в `tests.yml`.
-- Проект Kittygram доступен по доменному имени, указанному в `tests.yml`.
-- Пуш в ветку main запускает тестирование и деплой Kittygram, а после успешного деплоя вам приходит сообщение в телеграм.
-- В корне проекта есть файл `kittygram_workflow.yml`.
+* Если у вас Linux/macOS
+
+    ```
+    source env/bin/activate
+    ```
+
+* Если у вас Windows
+
+    ```
+    source env/scripts/activate
+    ```
+
+```
+python3 -m pip install --upgrade pip
+```
+
+Установить зависимости из файла requirements.txt:
+
+```
+pip install -r requirements.txt
+```
+
+Выполнить миграции:
+
+```
+python3 manage.py migrate
+```
+
+Запустить проект:
+
+```
+python3 manage.py runserver
+```
+Автор - Александр Рашкин (https://github.com/alexrashkin)
